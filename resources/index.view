@@ -1,0 +1,4 @@
+<svg>
+  <use id="list_action" href="#list_view" display="inline" /> 
+  <use id="image_action" href="#image_view" display="none" /> 
+</svg>

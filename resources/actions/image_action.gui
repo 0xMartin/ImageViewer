@@ -1,0 +1,9 @@
+<defs>
+  
+  <symbol id="image_view"> 
+    <svg>
+      <image x="0%" y="0%" width="100%" height="100%" id="image" pointer-events="all" />
+    </svg>
+  </symbol>
+  
+</defs>

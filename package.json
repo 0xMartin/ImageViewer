@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "@fitbit/sdk": "~6.0.0"
+  },
+  "fitbit": {
+    "appUUID": "33e5fac2-b8a8-4deb-b41f-a87cd6099c23",
+    "appType": "app",
+    "appDisplayName": "Image Viewer",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#e91e63",
+    "requestedPermissions": [],
+    "buildTargets": [
+      "atlas",
+      "vulcan"
+    ],
+    "i18n": {
+      "en-US": {
+        "name": "Image Viewer"
+      }
+    },
+    "defaultLanguage": "en-US"
+  }
+}
