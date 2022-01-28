@@ -1,4 +1,4 @@
-# ImageViewer
+# Image Viewer
 The application allows you to view pictures on the watch. This application is designed for Fitbit Versa 3. The user uploads the images in the settings of this application and then can view them on the watch. A maximum of 20 images can be uploaded.
 
 ## Settings
