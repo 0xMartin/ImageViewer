@@ -4,6 +4,10 @@ function mySettings(props) {
 
   return (
     <Page>
+        <Button
+          label="Delete all"
+          onClick={() => props.settingsStorage.setItem('delete', 'all')}
+        />
         <ImagePicker
           title="Image1"
           description="Pick an image"

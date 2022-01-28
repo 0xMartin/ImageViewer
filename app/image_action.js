@@ -38,12 +38,16 @@ inbox.onnewfile = () => {
   do {
     fileName = inbox.nextFile();
     if (fileName) {
-      jpeg.decodeSync(fileName, fileName.split(".")[0] + ".txi", {overwrite: true});
+      const new_name = fileName.split(".")[0] + ".txi";
+      //save new .jpg as .txi
+      jpeg.decodeSync(fileName, new_name, {overwrite: true});
+      //remove incoming .jpg
       fs.unlinkSync(fileName);
       console.log("Done " + fileName);
-      if(update_evt != null) {
-        update_evt();
-      }
     }
   } while (fileName);
+  //update
+  if(update_evt != null) {
+    update_evt();
+  }
 };

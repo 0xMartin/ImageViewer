@@ -70,3 +70,18 @@ function refreshList() {
     index++;
   }
 }
+
+//function delete file
+messaging.peerSocket.addEventListener("message", (evt) => {
+  switch(evt.data.type) {
+    case 'delete': 
+      for(var i = 1; i <= 20; i++) {
+        if (fs.existsSync("/private/data/Image"+i+".txi")) {
+          console.log("Image"+i + ".txi removed");
+          fs.unlinkSync("Image"+i+".txi");
+        }  
+      }
+      refreshList();
+      break;
+  }
+});

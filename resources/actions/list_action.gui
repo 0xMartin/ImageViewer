@@ -7,8 +7,8 @@
 
   <symbol id="my-item" href="#tile-list-item" class="list-item">
     <rect class="bg" />
-    <image id="img" width="20%" height="50%" y="25%" x="5%"/>
-    <text id="text" />
+    <image id="img" width="27%" height="70%" y="15%" x="5%"/>
+    <text id="text" x="37%" text-anchor="start" />
     <rect class="line" />
     <rect id="touch" pointer-events="all" />
   </symbol>
@@ -17,7 +17,7 @@
     <svg>
       <use id="myList" href="#tile-list" class="horizontal-pad">
         <use href="#my-header">
-          <set href="#text" attributeName="text-buffer" to="Images" />
+          <set href="#text" attributeName="text-buffer" to="IMAGES" />
         </use>
         <use href="#my-item">
           <set href="#img" attributeName="href" to="/private/data/Image1.txi" />
