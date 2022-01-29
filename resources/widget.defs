@@ -10,6 +10,7 @@
     
     <link rel="import" href="actions/list_action.gui" />
     <link rel="import" href="actions/image_action.gui" />
+    <link rel="import" href="actions/status_action.gui" />
     
   </defs>
 </svg>

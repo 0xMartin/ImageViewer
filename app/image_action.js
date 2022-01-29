@@ -44,10 +44,10 @@ inbox.onnewfile = () => {
       //remove incoming .jpg
       fs.unlinkSync(fileName);
       console.log("Done " + fileName);
+      //update
+      if(update_evt != null) {
+        update_evt(fileName.split(".")[0]);
+      }
     }
   } while (fileName);
-  //update
-  if(update_evt != null) {
-    update_evt();
-  }
 };

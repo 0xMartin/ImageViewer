@@ -21,7 +21,25 @@ settingsStorage.onchange = function(evt) {
       if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
         messaging.peerSocket.send({type: 'delete'});
       }
-      break
+      break;
+    case 'sync':
+      console.log("Sync " + evt.newValue);
+      if(evt.newValue == 'all') {
+        //all
+        for(var i = 1; i <= 20; ++i) {
+          var img = settingsStorage.getItem("Image"+i);
+          if(img != null) {
+            compressAndTransferImage("Image"+i, img);   
+          }
+        }
+      } else {
+        //only one
+        var img = settingsStorage.getItem(evt.newValue);
+        if(img != null) {
+          compressAndTransferImage(evt.newValue, img);   
+        }  
+      }
+      break;
     //upload image on watch
     default:
       compressAndTransferImage(evt.key, evt.newValue);   

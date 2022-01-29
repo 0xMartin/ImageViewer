@@ -1,4 +1,5 @@
 <svg>
   <use id="list_action" href="#list_view" display="none" /> 
   <use id="image_action" href="#image_view" display="none" /> 
+  <use id="status_action" href="#status_view" display="none" /> 
 </svg>
