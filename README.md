@@ -5,6 +5,7 @@ You can add new images in the settings of this application on your mobile in the
 
 ## Settings
   * Delete all
+  * Reqest sync
   * Upload new image
 <div>
   <img src="./doc/img1.png" width="30%">
