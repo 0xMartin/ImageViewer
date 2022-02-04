@@ -25,6 +25,10 @@ settingsStorage.onchange = function(evt) {
     case 'sync':
       console.log("Sync " + evt.newValue);
       if(evt.newValue == 'all') {
+         //send delete mess to wath
+        if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
+          messaging.peerSocket.send({type: 'delete'});
+        }
         //all
         for(var i = 1; i <= 20; ++i) {
           var img = settingsStorage.getItem("Image"+i);

@@ -6,98 +6,63 @@
   </symbol>
 
   <symbol id="my-item" href="#tile-list-item" class="list-item">
-    <rect class="bg" />
-    <image id="img" width="27%" height="70%" y="15%" x="5%"/>
-    <text id="text" x="37%" text-anchor="start" />
-    <rect class="line" />
-    <rect id="touch" pointer-events="all" />
+    <image id="img1" width="27%" height="70%" y="15%" x="4%" pointer-events="all"/>
+    <image id="img2" width="27%" height="70%" y="15%" x="36%" pointer-events="all"/>
+    <image id="img3" width="27%" height="70%" y="15%" x="68%" pointer-events="all"/>
   </symbol>
+  
   <symbol id="list_view"> 
     <svg>
       <use id="myList" href="#tile-list" class="horizontal-pad">
+        
+        <!-- header -->
         <use href="#my-header">
           <set href="#text" attributeName="text-buffer" to="IMAGES" />
         </use>
+        
+        <!-- images -->
         <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image1.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
+          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
         </use>
+        
         <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image2.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
+          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
         </use>
+        
         <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image3.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
+          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
         </use>
+        
         <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image4.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
+          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
         </use>
+        
         <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image5.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
+          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
         </use>
+        
         <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image6.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
+          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
         </use>
+        
         <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image7.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
+          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
+          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
         </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image8.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image9.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image10.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image11.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image12.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image13.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image14.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image15.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image16.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image17.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image18.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image19.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
-        <use href="#my-item">
-          <set href="#img" attributeName="href" to="/private/data/Image20.txi" />
-          <set href="#text" attributeName="text-buffer" to="Image00" />
-        </use>
+
       </use>
     </svg>
   </symbol>

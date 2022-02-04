@@ -10,11 +10,22 @@ import * as messaging from "messaging";
 const list = document.getElementById("myList");
 const items = list.getElementsByClassName("list-item");
 items.forEach((element, index) => {
-  var touch = element.getElementById("touch");
-  var text = element.getElementById("text");
-  if(touch != null) {
-    touch.onclick = function(evt) {
-      navigation_goToImageView(text.text);
+  var img1 = element.getElementById("img1");
+  if(img1 != null) {
+    img1.onclick = function(evt) {
+      navigation_goToImageView(img1.href);
+    };
+  }
+  var img2 = element.getElementById("img2");
+  if(img2 != null) {
+    img2.onclick = function(evt) {
+      navigation_goToImageView(img2.href);
+    };
+  }
+  var img3 = element.getElementById("img3");
+  if(img3 != null) {
+    img3.onclick = function(evt) {
+      navigation_goToImageView(img3.href);
     };
   }
 });
@@ -50,8 +61,10 @@ function navigation_goToListView() {
 }
 navigation_goToListView();
 
-function navigation_goToImageView(img_name) {
-  console.log("Go to image view [" + img_name + "]");
+function navigation_goToImageView(img_href) {
+  console.log("Go to image view [" + img_href + "]");
+  const img_name = img_href.substring(img_href.lastIndexOf("/"), img_href.lastIndexOf("."));
+  console.log("Image name: " + img_name);
   list_action.style.display = "none";
   image_action.style.display = "inline";  
   
@@ -112,11 +125,11 @@ function refreshList() {
     var dv = String(dirIter.value);
     if(strStartsWith(dv, "Image")) {
       var name = dv.split(".")[0];
-      var text_item = list_items[index + 1].getElementById("text");
-      text_item.text = name;
-      var img_item = list_items[index + 1].getElementById("img");
+      var img_index = index % 3 + 1;
+      var list_item_index = Math.floor(index / 3);
+      var img_item = list_items[list_item_index + 1].getElementById("img" + img_index);
       img_item.href = "/private/data/"+name+".txi";
-      list_items[index + 1].style.display = "inline";
+      list_items[list_item_index + 1].style.display = "inline";
     }
     index++;
   }
@@ -126,12 +139,17 @@ function refreshList() {
 messaging.peerSocket.addEventListener("message", (evt) => {
   switch(evt.data.type) {
     case 'delete': 
-      for(var i = 1; i <= 20; i++) {
-        if (fs.existsSync("/private/data/Image"+i+".txi")) {
-          console.log("Image"+i + ".txi removed");
-          fs.unlinkSync("Image"+i+".txi");
+      //delete all
+      const listDir = fs.listDirSync("/private/data");
+      var dirIter;
+      while((dirIter = listDir.next()) && !dirIter.done) {
+        var dv = String(dirIter.value);
+        if (fs.existsSync("/private/data/"+dv)) {
+          console.log(dv + " removed");
+          fs.unlinkSync(dv);
         }  
       }
+      //refresh
       refreshList();
       break;
   }
