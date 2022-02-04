@@ -1,6 +1,8 @@
+import * as config from "../common/config";
+
 function totalSize(props) {
   var total = 0;
-  for(var i = 1; i <= 20; ++i) {
+  for(var i = 1; i <= 30; ++i) {
     var img = props.settingsStorage.getItem("Image"+i);
     if(img != null) {
       var size = JSON.parse(img).imageUri.length / 1024;
@@ -9,7 +11,6 @@ function totalSize(props) {
   }
   return total;
 }
-
 
 function mySettings(props) {
   let screenWidth = props.settingsStorage.getItem("screenWidth");
@@ -25,8 +26,7 @@ function mySettings(props) {
     </Section>
   );
   
-  
-  for (var i = 1; i <= 21; i++) {
+  for (var i = 1; i <= config.IMAGE_COUNT; i++) {
     var item = "Image"+i  
     const str = new String("Image"+i);
     rows.push(

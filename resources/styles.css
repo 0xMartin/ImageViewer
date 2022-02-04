@@ -13,6 +13,23 @@
   font-weight: bold;
   fill: fb-purple;
   font-size: 40;
+  text-anchor: start;
+  x: 20%;
+}
+
+.header image {
+  width: 40;
+  height: 40; 
+  x: 80%-40;  
+  y: 50%-18; 
+}
+
+.header image.tiles {
+  href: "src/tiles.png";
+}
+
+.header image.list {
+  href: "src/list.png";
 }
 
 #touch {
