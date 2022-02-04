@@ -12,7 +12,7 @@ settingsStorage.onchange = function(evt) {
   //delete all
   switch(evt.key) {
     case 'delete':
-      for(var i = 1; i <= 20; ++i) {
+      for(var i = 1; i <= 21; ++i) {
         if(settingsStorage.getItem("Image"+i) != null) {
           settingsStorage.removeItem("Image"+i);
         }
@@ -30,7 +30,7 @@ settingsStorage.onchange = function(evt) {
           messaging.peerSocket.send({type: 'delete'});
         }
         //all
-        for(var i = 1; i <= 20; ++i) {
+        for(var i = 1; i <= 21; ++i) {
           var img = settingsStorage.getItem("Image"+i);
           if(img != null) {
             compressAndTransferImage("Image"+i, img);   

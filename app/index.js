@@ -132,6 +132,7 @@ function refreshList() {
       list_items[list_item_index + 1].style.display = "inline";
     }
     index++;
+    if(index >= 21) break;
   }
 }
 

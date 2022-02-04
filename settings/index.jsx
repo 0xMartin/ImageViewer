@@ -26,7 +26,7 @@ function mySettings(props) {
   );
   
   
-  for (var i = 1; i <= 20; i++) {
+  for (var i = 1; i <= 21; i++) {
     var item = "Image"+i  
     const str = new String("Image"+i);
     rows.push(
