@@ -17,7 +17,7 @@ Available in Fitbit gallery: https://gallery.fitbit.com/details/33e5fac2-b8a8-4d
   <img src="./doc/img7.png" width="30%">
 </div>
 
-## Instructions for uploading and deleting an image
+## Instructions for uploading and deleting
 You can add new images in the settings of this application on your mobile in the Fitbit application. After adding an image to the settings, it will be automatically uploaded to the watch. Sometimes a connection error may occur that the image will not move to the watch (then you must click the "Reqest sync" button and synchronize the watch data with the mobile data). It can synchronize all images (button at the top) or one specific image (button below the image). The images can be deleted with the "Delete all" button. If you are replacing uploaded images, you must restart the watch application for the changes to take effect. It is also possible set image name (max. length of image name is 20 chars). Image names are visible only in "list mode". 
 
 ## Settings
