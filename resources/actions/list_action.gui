@@ -11,7 +11,12 @@
     <image id="img2" width="27%" height="70%" y="15%" x="36%" pointer-events="all"/>
     <image id="img3" width="27%" height="70%" y="15%" x="68%" pointer-events="all"/>
     
-    <text id="text" x="37%" text-anchor="start" text-length="20" />
+    <!--<text id="text" x="37%" text-anchor="start" text-length="20" />-->
+    <use id="text" href="#marquee-text" font-size="22" x="37%" width="60%"
+      height="100%" mode="0" value="50" fill="white">
+      <set href="group/text" attributeName="text-length" to="25" />
+      <set href="group/separator" attributeName="width" to="150" />
+    </use>
   </symbol>
   
   <symbol id="list_view"> 
@@ -34,7 +39,6 @@
           <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
           <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
           <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#text" attributeName="text-length" to="20" />
         </use>
         
         <use href="#list_item_tiles">

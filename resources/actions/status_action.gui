@@ -1,7 +1,7 @@
 <defs>
   
   <symbol id="status_view"> 
-    <svg x="10%" y="40%" width="80%" height="20%">
+    <svg x="0%" y="40%" width="100%" height="20%">
        <rect width="100%" height="100%" fill="black" />
        <text id="status_txt" x="50%" y="50%+15"
           font-family="System-Regular" fill="fb-green"

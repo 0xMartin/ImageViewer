@@ -8,6 +8,8 @@
     <link rel="import" href="/mnt/sysassets/widgets/scrollbar.defs" />
     <link rel="import" href="/mnt/sysassets/widgets/tile_list_widget.defs" />
     
+    <link rel="import" href="/mnt/sysassets/widgets/marquee_text_widget.defs" />
+    
     <link rel="import" href="actions/list_action.gui" />
     <link rel="import" href="actions/image_action.gui" />
     <link rel="import" href="actions/status_action.gui" />

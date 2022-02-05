@@ -33,7 +33,7 @@ export function update(img_name) {
 
 //file reciever
 inbox.onnewfile = () => {
-  console.log("New file");
+  console.log("[WATCH]: " + "New file");
   var fileName;
   do {
     fileName = inbox.nextFile();
@@ -43,7 +43,7 @@ inbox.onnewfile = () => {
       jpeg.decodeSync(fileName, new_name, {overwrite: true});
       //remove incoming .jpg
       fs.unlinkSync(fileName);
-      console.log("Done " + fileName);
+      console.log("[WATCH]: " + "Done " + fileName);
       //update
       if(update_evt != null) {
         update_evt(fileName.split(".")[0]);

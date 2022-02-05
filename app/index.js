@@ -54,7 +54,7 @@ image.close_evt = function() {
   navigation_goToListView(); 
 };
 image.update_evt = function(img_name) {
-  navigation_showStatusAction(img_name + " accepted", 2000);
+  navigation_showStatusAction(img_name, 2000);
   refreshList(); 
 };
 
@@ -88,9 +88,18 @@ messaging.peerSocket.addEventListener("message", (evt) => {
       while((dirIter = listDir.next()) && !dirIter.done) {
         var dv = String(dirIter.value);
         if (fs.existsSync("/private/data/"+dv)) {
-          console.log(dv + " removed");
+          console.log("[WATCH]: " + dv + " removed");
           fs.unlinkSync(dv);
         }  
+      }
+      //refresh
+      refreshList();
+      break;
+    case 'rename':
+      //rename
+      if (fs.existsSync("/private/data/"+evt.data.old+".txi")) {
+        fs.renameSync(evt.data.old+".txi", evt.data.new+".txi");
+        console.log("[WATCH]: " + "Rename done");
       }
       //refresh
       refreshList();
@@ -102,16 +111,17 @@ messaging.peerSocket.addEventListener("message", (evt) => {
 /*****************************************************************************************************************/
 
 function navigation_goToListView() {
-  console.log("Go to list view");
+  console.log("[WATCH]: " + "Go to list view");
   list_action.style.display = "inline";
   image_action.style.display = "none";  
   refreshList();
 }
 
 function navigation_goToImageView(img_href) {
-  console.log("Go to image view [" + img_href + "]");
+  if(img_href.length == 0) return;
+  console.log("[WATCH]: " + "Go to image view [" + img_href + "]");
   const img_name = img_href.substring(img_href.lastIndexOf("/"), img_href.lastIndexOf("."));
-  console.log("Image name: " + img_name);
+  console.log("[WATCH]: " + "Image name: " + img_name);
   list_action.style.display = "none";
   image_action.style.display = "inline";  
   

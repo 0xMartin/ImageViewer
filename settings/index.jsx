@@ -31,6 +31,11 @@ function mySettings(props) {
     const str = new String("Image"+i);
     rows.push(
       <Section>
+        <TextInput
+          label="Name: "
+          settingsKey={ item + "_str" }
+          defaultValue={ item }
+        />
         <ImagePicker
                 title={ item }
                 sublabel="Image picker"
