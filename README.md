@@ -17,10 +17,13 @@ You can add new images in the settings of this application on your mobile in the
 ## List of pictures
 <div>
   <img src="./doc/img2.png" width="30%">
+  <img src="./doc/img3.png" width="30%">
+  <img src="./doc/img4.png" width="30%">
 </div>
 
 ## Image display
 <div>
-  <img src="./doc/img3.png" width="30%">
-  <img src="./doc/img4.png" width="30%">
+  <img src="./doc/img5.png" width="30%">
+  <img src="./doc/img6.png" width="30%">
+  <img src="./doc/img7.png" width="30%">
 </div>
