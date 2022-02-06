@@ -24,16 +24,19 @@
       
     <!-- IMAGE NAME (ONLY FOR LIST MODE) -->
     <use id="text" href="#marquee-text" font-size="22" x="37%" width="60%"
-      height="100%" mode="0" value="50" fill="white">
+      height="100%" mode="0" value="50" fill="white" pointer-events="all">
       <set href="group/text" attributeName="text-length" to="25" />
       <set href="group/separator" attributeName="width" to="150" />
     </use>
+    
+    <!-- TOUCH AREA -->
+    <rect id="touch" pointer-events="all" />
   </symbol>
   
     <!-- LIST ITEM -->
   <symbol id="list_item" href="#tile-list-item" class="list-item">
     <!-- IMAGES -->
-    <image id="img1" width="27%" height="70%" y="15%" x="4%" href="" pointer-events="all"/>
+    <image id="img1" width="27%" height="70%" y="15%" x="4%" href="" />
       
     <!-- IMAGE NAME -->
     <use id="text" href="#marquee-text" font-size="22" x="37%" width="60%"
@@ -41,6 +44,9 @@
       <set href="group/text" attributeName="text-length" to="25" />
       <set href="group/separator" attributeName="width" to="150" />
     </use>
+    
+    <!-- TOUCH AREA -->
+    <rect id="touch" pointer-events="all" />
   </symbol>
   
   <!-- IMAGE LIST -->

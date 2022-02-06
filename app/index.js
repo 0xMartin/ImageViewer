@@ -48,6 +48,12 @@ if(list_items != null) {
         navigation_goToImageView(img3.href);
       };
     }
+    var touch = element.getElementById("touch");
+    if(touch != null && img1 != null) {
+      touch.onclick = function(evt) {
+        navigation_goToImageView(img1.href);
+      };
+    }
   });
 }
 
@@ -210,6 +216,12 @@ function refreshList() {
       if(index < 3) {
         element.getElementById("img2").href = "";
         element.getElementById("img3").href = "";
+        //deactivate touch for first 2 items (cant by activated in tile mode)
+        if(list_mode.class == "tiles") { 
+          element.getElementById("touch").style.display = "none"; 
+        } else {
+          element.getElementById("touch").style.display = "inline";   
+        }
       }
       //hide element
       element.style.display = "none"; 
