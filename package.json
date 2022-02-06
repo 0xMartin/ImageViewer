@@ -10,8 +10,8 @@
     "wipeColor": "#673ab7",
     "requestedPermissions": [],
     "buildTargets": [
-      "atlas",
-      "vulcan"
+      "vulcan",
+      "atlas"
     ],
     "i18n": {
       "en-US": {

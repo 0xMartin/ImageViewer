@@ -12,6 +12,8 @@ const CONFIG_FILE = "config.txt";
 
 //list header
 const list_mode = document.getElementById("list_mode");
+const tile_dots_container = document.getElementById("tile_dots");
+const tile_pages_dots = tile_dots_container.getElementsByTagName("circle");
 
 //list
 const list = document.getElementById("myList");
@@ -78,7 +80,7 @@ if(list_mode != null) {
 }
 
 
-//delete all images
+//msg events
 messaging.peerSocket.addEventListener("message", (evt) => {
   switch(evt.data.type) {
     case 'delete': 
@@ -107,6 +109,37 @@ messaging.peerSocket.addEventListener("message", (evt) => {
   }
 });
 
+//horisontal scroll events (for list view in tiles mode)
+var tile_list_page = 0; //current tile page
+var tile_list_page_count = 0; //total tile page count
+var lastX = 0;
+var diffX = 0;
+list.onmousedown = evt => {
+  lastX = evt.screenX;;  
+}
+list.onmousemove = evt => {
+  diffX = evt.screenX - lastX;
+}
+list.onmouseup = evt => {
+  if(list_mode.class == "tiles") {
+    //change tile list page number
+    if(diffX < -60) {
+      //right
+      tile_list_page++;
+      if(tile_list_page >= tile_list_page_count) {
+        tile_list_page = tile_list_page_count - 1;  
+      }
+    } else if(diffX > 60) {
+      //left
+      tile_list_page--;
+      tile_list_page = Math.max(tile_list_page, 0);
+    }
+    
+    //refresh
+    refreshList();
+  }
+}
+
 // navigation
 /*****************************************************************************************************************/
 
@@ -120,7 +153,7 @@ function navigation_goToListView() {
 function navigation_goToImageView(img_href) {
   if(img_href.length == 0) return;
   console.log("[WATCH]: " + "Go to image view [" + img_href + "]");
-  const img_name = img_href.substring(img_href.lastIndexOf("/"), img_href.lastIndexOf("."));
+  const img_name = img_href.substring(img_href.lastIndexOf("/") + 1, img_href.lastIndexOf("."));
   console.log("[WATCH]: " + "Image name: " + img_name);
   list_action.style.display = "none";
   image_action.style.display = "inline";  
@@ -167,24 +200,29 @@ function flushStatusQueue(run) {
 
 //refresh list view
 function refreshList() {
-   //clear list
+  //clear list
   list_items.forEach((element, index) => {
     if(index != 0) {
       //clear text
-      var text_item = element.getElementById("text").text = "";
+      element.getElementById("text").text = "";
       //clear images
       element.getElementById("img1").href = "";
-      element.getElementById("img2").href = "";
-      element.getElementById("img3").href = "";
+      if(index < 3) {
+        element.getElementById("img2").href = "";
+        element.getElementById("img3").href = "";
+      }
       //hide element
       element.style.display = "none"; 
     }
   });
   
-  //find all files in watch storage
+  //find all files in watch storage and add them to the list
   const listDir = fs.listDirSync("/private/data");
   var dirIter;
+  
   var index = 0;
+  var offset = 0;
+  
   while((dirIter = listDir.next()) && !dirIter.done) {
     var dv = String(dirIter.value);
     
@@ -193,26 +231,62 @@ function refreshList() {
       var name = dv.split(".")[0];
       
       //write image priview and name of image to list item
-      if(list_mode.class == "tiles") {
-        //tiles mode
-        var img_index = index % 3 + 1;
-        var list_item_index = Math.floor(index / 3);
-        var img_item = list_items[list_item_index + 1].getElementById("img" + img_index);
-        img_item.href = "/private/data/"+name+".txi";
-        list_items[list_item_index + 1].style.display = "inline";
+      if(list_mode.class == "tiles") {    
+        if(index >= tile_list_page * 6 && offset < 6) {
+          //tiles mode
+          var img_index = offset % 3 + 1;
+          var list_item_index = Math.floor(offset / 3);
+
+          //display
+          if(img_index == 1) {
+            list_items[list_item_index + 1].style.display = "inline";
+          }
+
+          var img_item = list_items[list_item_index + 1].getElementById("img" + img_index);
+          img_item.href = "/private/data/"+name+".txi";
+
+          offset++;
+        }
       } else {
-        //list mode  
-         var text_item = list_items[index + 1].getElementById("text");
-        text_item.text = name;
-        var img_item = list_items[index + 1].getElementById("img1");
-        img_item.href = "/private/data/"+name+".txi";
+        //display
         list_items[index + 1].style.display = "inline";
+
+        //list mode  
+         var text_item = list_items[offset + 1].getElementById("text");
+        text_item.text = name;
+        var img_item = list_items[offset + 1].getElementById("img1");
+        img_item.href = "/private/data/"+name+".txi";
+        
+        offset++;
       }
-      
+                  
       //iamge index (for offset)
       index++;
       if(index >= config.IMAGE_COUNT) break;
     }
+  }
+  
+  //refresh dots
+  if(list_mode.class == "tiles") {
+    tile_list_page_count = Math.ceil(index / 6);
+    //visibility of container
+    tile_dots_container.style.display = "inline"; 
+    //set style for container
+    tile_dots_container.class = "dot_" + tile_list_page_count;
+    //color
+    for(var i = 0; i < 4; i++) {
+      tile_pages_dots[i].style.fill = "gray";
+      //hide dot
+      if(i >= tile_list_page_count) {
+        tile_pages_dots[i].style.display = "none";   
+      } else {
+        tile_pages_dots[i].style.display = "inline";    
+      }
+    }
+    tile_pages_dots[tile_list_page].style.fill = "white";    
+  } else {
+    //visibility of container
+    tile_dots_container.style.display = "none";     
   }
 }
 

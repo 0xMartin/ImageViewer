@@ -54,9 +54,19 @@ settingsStorage.onchange = function(evt) {
           new_name = new_name.substring(0, 20);
           settingsStorage.setItem(evt.key, JSON.stringify({"name": new_name}));
         }
+        new_name = new_name.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        new_name = new_name.replace(" ", "_");
         
         //rename image
-        var old_name = JSON.parse(evt.oldValue).name;
+        var old_name = "";
+        if(evt.oldValue == null) {
+          old_name = evt.key.substring(0, evt.key.length - 4);  
+        } else {
+          old_name = JSON.parse(evt.oldValue).name;  
+        }
+        old_name = old_name.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        old_name = old_name.replace(" ", "_");
+        
         console.log("Rename: " + old_name + " -> " + new_name);
         if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
           messaging.peerSocket.send({type: 'rename', old: old_name, new: new_name});
@@ -80,6 +90,8 @@ function compressAndTransferImage(name, settingsValue) {
   } else {
     img_name = JSON.parse(img_name_field).name;  
   }
+  img_name = img_name.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  img_name = img_name.replace(" ", "_");
   
   //upload image
   const imageData = JSON.parse(settingsValue);

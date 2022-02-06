@@ -1,17 +1,28 @@
 <defs>
-   
+  
+  <!-- LIST HEADER -->
   <symbol id="my-header" href="#tile-list-header" class="list-item header">
+     <!-- HEADER TEXT -->
     <text id="text" />
+     <!-- TOOGLE BTN (LIST/TILES) -->
     <image id="list_mode" class="tiles" pointer-events="all"/>
+     <!-- PAGE DOTS (FOR TILE LIST) -->
+    <svg id="tile_dots" width="40%" x="30%" class="dot_4">
+      <circle id="d1" cy="90%" r="5" fill="white" />
+      <circle id="d2" cy="90%" r="5" fill="gray" />
+      <circle id="d3" cy="90%" r="5" fill="gray" />
+      <circle id="d4" cy="90%" r="5" fill="gray" />
+    </svg>
   </symbol>
   
-  <!-- LIST ITEM -->
+  <!-- TILE LIST ITEM -->
   <symbol id="list_item_tiles" href="#tile-list-item" class="list-item">
-    <image id="img1" width="27%" height="70%" y="15%" x="4%" pointer-events="all"/>
-    <image id="img2" width="27%" height="70%" y="15%" x="36%" pointer-events="all"/>
-    <image id="img3" width="27%" height="70%" y="15%" x="68%" pointer-events="all"/>
-    
-    <!--<text id="text" x="37%" text-anchor="start" text-length="20" />-->
+    <!-- IMAGES -->
+    <image id="img1" width="27%" height="70%" y="15%" x="4%" href="" pointer-events="all"/>
+    <image id="img2" width="27%" height="70%" y="15%" x="36%" href="" pointer-events="all"/>
+    <image id="img3" width="27%" height="70%" y="15%" x="68%" href="" pointer-events="all"/>
+      
+    <!-- IMAGE NAME (ONLY FOR LIST MODE) -->
     <use id="text" href="#marquee-text" font-size="22" x="37%" width="60%"
       height="100%" mode="0" value="50" fill="white">
       <set href="group/text" attributeName="text-length" to="25" />
@@ -19,6 +30,20 @@
     </use>
   </symbol>
   
+    <!-- LIST ITEM -->
+  <symbol id="list_item" href="#tile-list-item" class="list-item">
+    <!-- IMAGES -->
+    <image id="img1" width="27%" height="70%" y="15%" x="4%" href="" pointer-events="all"/>
+      
+    <!-- IMAGE NAME -->
+    <use id="text" href="#marquee-text" font-size="22" x="37%" width="60%"
+      height="100%" mode="0" value="50" fill="white">
+      <set href="group/text" attributeName="text-length" to="25" />
+      <set href="group/separator" attributeName="width" to="150" />
+    </use>
+  </symbol>
+  
+  <!-- IMAGE LIST -->
   <symbol id="list_view"> 
     <svg>
       <use id="myList" href="#tile-list" class="horizontal-pad">
@@ -30,91 +55,47 @@
         
         <!-- images -->
         <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
-        </use>
-        
+        </use>        
         <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
+        </use>       
+        <use href="#list_item">
+        </use>       
+        <use href="#list_item">
+        </use>        
+        <use href="#list_item">
+        </use>        
+        <use href="#list_item">
+        </use>       
+        <use href="#list_item">
         </use>
-        
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img2" attributeName="href" to="/private/data/Image00.txi" />
-          <set href="#img3" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        
-        <!-- extension for list mode -->
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
+        <use href="#list_item">
         </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
-        </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
-        </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
-        </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
-        </use>
-        <use href="#list_item_tiles">
-          <set href="#img1" attributeName="href" to="/private/data/Image00.txi" />
-        </use>
-
 
       </use>
     </svg>
