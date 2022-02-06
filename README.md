@@ -1,5 +1,5 @@
 # Image Viewer
-The application allows you to view pictures on the watch. The user uploads the images in the settings and then can view them on the watch (maximum 21 images / depends on the size of the image). In the application, all uploaded images are displayed in a list (there are two display modes: tiles and list, you can change this by clicking on the icon on right of the "IMAGE header"). To display an image from the list, just click on it. To return back to the list, click on the maximized image.
+The application allows you to view pictures on the watch. The user uploads the images in the settings and then can view them on the watch (maximum 21 images / depends on the size of the image). In the application, all uploaded images are displayed in a list (there are two display modes: tiles and list, you can change this by clicking on the icon on right of the "IMAGE header"). In tiles list mode you can seen max 6 images on the page. Page you can change be swiping. To show an image from the list, just click on it. To return back to the list, click on the maximized image.
 
 Available in Fitbit gallery: https://gallery.fitbit.com/details/33e5fac2-b8a8-4deb-b41f-a87cd6099c23
 
