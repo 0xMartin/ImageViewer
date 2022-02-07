@@ -19,5 +19,11 @@
       }
     },
     "defaultLanguage": "en-US"
+  },
+  "dependencies": {
+    "@fitbit/sdk-cli": "^1.7.2"
+  },
+  "scripts": {
+    "build": "fitbit-build"
   }
 }
