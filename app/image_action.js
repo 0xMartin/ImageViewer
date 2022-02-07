@@ -1,6 +1,5 @@
 import * as document from "document";
 import { inbox } from "file-transfer";
-import * as messaging from "messaging";
 import * as jpeg from "jpeg";
 import * as fs from "fs";
 
@@ -14,22 +13,22 @@ export var close_evt = null;
 export var update_evt = null;
 
 
-export function init() {   
-  if(inited) return;
+export function init() {
+  if (inited) return;
   inited = true;
-  
+
   //image element
   image_element = document.getElementById("image");
   image_element.addEventListener("click", (evt) => {
-    if(close_evt != null) {
+    if (close_evt != null) {
       close_evt();
-    }  
+    }
   });
-} 
+}
 
 export function update(img_name) {
-  image_element.image  = root_dir + img_name + ".txi";
-} 
+  image_element.image = root_dir + img_name + ".txi";
+}
 
 //file reciever
 inbox.onnewfile = () => {
@@ -40,12 +39,12 @@ inbox.onnewfile = () => {
     if (fileName) {
       const new_name = fileName.split(".")[0] + ".txi";
       //save new .jpg as .txi
-      jpeg.decodeSync(fileName, new_name, {overwrite: true});
+      jpeg.decodeSync(fileName, new_name, { overwrite: true });
       //remove incoming .jpg
       fs.unlinkSync(fileName);
       console.log("[WATCH]: " + "Done " + fileName);
       //update
-      if(update_evt != null) {
+      if (update_evt != null) {
         update_evt(fileName.split(".")[0]);
       }
     }
